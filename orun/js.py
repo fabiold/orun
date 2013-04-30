@@ -161,13 +161,13 @@ class JsObject(object):
             write('%s.%s = %s' % (self._id, attr, json.dumps(value)))
         self._js[attr] = value
 
+def alert(msg):
+    write(client.alert(msg))
+
 def load(filename, klass=JsObject):
     return klass(**json.load(open(filename)))
 
 cli = client = JsClient()
-
-def call(self, *args):
-    print('call')
 
 if __name__ == '__main__':
     class MyManager(JsManager):
