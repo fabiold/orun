@@ -129,6 +129,24 @@ class JsObjectNode(JsNode):
         super(JsObjectNode, self).__call__(*args, **kwargs)
         write(str(self))
 
+class JsOutput(object):
+    def __init__(self, manager=True):
+        self.body = []
+        if manager:
+            js_manager = self
+        
+    def __lshift__(self, other):
+        self.write(other)
+        
+    def write(self, code):
+        self.body.append(code)
+        
+    def __str__(self):
+        s = ';\n'.join(self.body)
+        return s
+    
+out = output = JsOutput
+
 class JsObject(object):
     def __init__(self, *args, **kwargs):
         self._loading = True
@@ -160,7 +178,7 @@ class JsObject(object):
         if not self._loading:
             write('%s.%s = %s' % (self._id, attr, json.dumps(value)))
         self._js[attr] = value
-
+        
 def alert(msg):
     write(client.alert(msg))
 
