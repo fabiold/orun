@@ -6,6 +6,10 @@ class Application(object):
     
     def __init__(self, title=''):
         self.title = title
+        self.configure()
+        
+    def configure(self):
+        pass
         
     def main(self):
         pass
