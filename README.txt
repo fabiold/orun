@@ -1,10 +1,9 @@
-====
 Orun
 ====
 
 Orun (Object RUNtime) is a small/lightweight library that provides a fast 
-and full way to build Python RIA, the client communicates with the server 
-through ajax. Typical usage often looks like this::
+to build Python RIA, the client communicates with the server through ajax.
+Typical usage often looks like this::
 
     #!/usr/bin/env python
     # Cherrypy + ExtJS example
@@ -39,5 +38,5 @@ The example above, runs cherrypy application on 8080 http port, and exposes
 extjs method.
 
 Installation
-------------
+============
 
